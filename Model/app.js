@@ -1,5 +1,3 @@
-//  mikham har vaght roye button click karidm modal neshon bede
-// bary in kar bayad class show be model contianer ezafe koim
 
 const openBtn = document.querySelector(".open");
 const modalContainer = document.querySelector(".modal-container");
