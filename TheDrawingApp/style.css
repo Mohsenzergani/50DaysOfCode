@@ -24,7 +24,7 @@ canvas {
   background-color: lightseagreen;
   display: flex;
   padding: 1rem;
-  width: 1506px;
+  width: 1200px;
 }
 
 .toolbar > * {

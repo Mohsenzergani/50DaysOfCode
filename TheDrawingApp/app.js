@@ -1,43 +1,35 @@
+// GET ELEMENT
 const canvas = document.getElementById("drawing-canvas");
-const increaseBtn = document.querySelector("#increase");
-const decreaseBtn = document.querySelector("#decrease");
+const incrementBtn = document.querySelector("#increase");
+const decreasedBtn = document.querySelector("#decrease");
 const strokeThickness = document.querySelector("#size");
 const colorBtn = document.querySelector("#color");
 const clearBtn = document.querySelector("#clear");
 
-/*
-******************* Canvas getContext() Method *********************
-https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext#:~:text=getContext()%20method%20returns%20a,to%20a%20different%20context%20mode.
-
-******************* CanvasRenderingContext2D ********************
-https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
-*/
-
 const ctx = canvas.getContext("2d");
 
 let size = 10;
-let isPressed = false;
+let isPress = false;
 let color = "black";
 let x = undefined;
 let y = undefined;
 
 canvas.addEventListener("mousedown", function (e) {
-  isPressed = true;
+  isPress = true;
   x = e.offsetX;
   y = e.offsetY;
+  // console.log("down");
 });
-
 canvas.addEventListener("mouseup", function (e) {
-  isPressed = false;
+  isPress = false;
   x = undefined;
   y = undefined;
+  // console.log("up");
 });
-
 canvas.addEventListener("mousemove", function (e) {
-  if (isPressed) {
+  if (isPress) {
     const x2 = e.offsetX;
     const y2 = e.offsetY;
-
     drawCircle(x2, y2);
     drawLine(x, y, x2, y2);
     x = x2;
@@ -54,8 +46,6 @@ function drawLine(x1, y1, x2, y2) {
   ctx.lineWidth = size * 2;
   ctx.stroke();
 }
-
-// Drawing Circles
 function drawCircle(x, y) {
   ctx.beginPath();
   ctx.arc(x, y, size, 0, Math.PI * 2);
@@ -63,41 +53,34 @@ function drawCircle(x, y) {
   ctx.fill();
 }
 
-// Increase Btn
-increaseBtn.addEventListener("click", function () {
+// increase Btn size
+incrementBtn.addEventListener("click", function () {
   size += 1;
-
   if (size > 50) {
     size = 50;
   }
-
   updateSize();
 });
-
-// Decrease Btn
-decreaseBtn.addEventListener("click", function () {
+// decrease Btn size
+decreasedBtn.addEventListener("click", function () {
   size -= 1;
-
   if (size < 1) {
     size = 1;
   }
-
   updateSize();
 });
-
 // Color Btn
 colorBtn.addEventListener("change", function (e) {
   color = e.target.value;
   console.log(e.target.value);
   console.log(color);
 });
-
-// Clear Btn
+// clear Btn
 clearBtn.addEventListener("click", function () {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
+// update size stroke with
 
-// Updating the Stroke Width Dynamically
 function updateSize() {
-  strokeThickness.innerText = size;
+  strokeThickness.innerHTML = size;
 }
