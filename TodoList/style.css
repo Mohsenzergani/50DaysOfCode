@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  min-height: 100vh;
+  width: 100%;
+  background-image: url("bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  line-height: 1.8;
+}
+
+i {
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+  color: white;
+}
+
+.container {
+  padding: 10px;
+  width: 70%;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  margin-bottom: 80px;
+  color: white;
+  font-weight: 100;
+  font-size: 50px;
+}
+
+.clear {
+  width: 80%;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.clear i {
+  font-size: 30px;
+  color: #fff;
+}
+
+/* ------------ content ------------ */
+.content {
+  width: 500px;
+  height: 350px;
+  max-height: 350px;
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+}
+
+.item {
+  position: relative;
+  width: 380px;
+  min-height: 45px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.item i.complete {
+  position: absolute;
+  left: 15px;
+  top: 10px;
+  font-size: 25px;
+  padding-left: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.fa-check-circle {
+  color: #6eb200;
+}
+
+.item p.text {
+  position: absolute;
+  font-size: 20px;
+  left: 55px;
+  top: 5px;
+  color: #fff;
+  max-width: 285px;
+  transition: all 0.3s ease-in-out;
+}
+
+.line-through {
+  text-decoration: line-through;
+  color: rgb(148, 146, 146) !important;
+  transition: all 0.3s ease-in-out;
+}
+
+.item i.delete {
+  position: absolute;
+  font-size: 25px;
+  right: 15px;
+  top: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+/* ------------ add item ------------ */
+.add-to-do {
+  position: relative;
+  width: 360px;
+  height: 40px;
+  padding: 10px;
+}
+
+.add-to-do i {
+  position: absolute;
+  font-size: 40px;
+  color: white;
+  left: -10px;
+}
+
+.add-to-do input {
+  position: absolute;
+  left: 50px;
+  height: 35px;
+  width: 310px;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  padding-left: 10px;
+  color: white;
+  outline: none;
+  border-top: 1px solid white;
+}
