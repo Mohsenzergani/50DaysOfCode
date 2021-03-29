@@ -80,9 +80,13 @@ h1 {
   padding-left: 5px;
   transition: all 0.3s ease-in-out;
 }
+.fa-circle-thin{
+ 
 
+}
 .fa-check-circle {
   color: #6eb200;
+  
 }
 
 .item p.text {
@@ -113,8 +117,9 @@ h1 {
 .add-to-do {
   position: relative;
   width: 360px;
-  height: 40px;
+  height:80px;
   padding: 10px;
+
 }
 
 .add-to-do i {
@@ -122,6 +127,8 @@ h1 {
   font-size: 40px;
   color: white;
   left: -10px;
+ 
+
 }
 
 .add-to-do input {
