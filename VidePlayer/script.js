@@ -53,7 +53,7 @@ function stopVideo() {
 video.addEventListener("click", toggleVideStatus);
 video.addEventListener("pause", updatePlayIcon);
 video.addEventListener("play", updatePlayIcon);
-video.addEventListener("timestamp", updateProgress);
+video.addEventListener("timeupdate", updateProgress);
 
 play.addEventListener("click", toggleVideStatus);
 stop.addEventListener("click", stopVideo);
