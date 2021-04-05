@@ -1,2 +1,2 @@
-# 100-days-of-code-javascript
+#100DaysOfCode
 Javascript &amp; Html &amp; Css
