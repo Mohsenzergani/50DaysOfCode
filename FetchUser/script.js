@@ -37,7 +37,7 @@ function updateDOM(providedData = data) {
     const element = document.createElement("div");
     element.classList.add("person");
     element.innerHTML = `<strong>${item.name}</strong><span>${
-      item.gender
+      item.gender 
     }</span> ${formatMoney(item.money)}`;
     main.appendChild(element);
   });
