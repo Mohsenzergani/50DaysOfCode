@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+.list {
+  position: relative;
+  transition: transform 0.5s ease-in-out;
+}
+
+.item {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.item img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.btn-left {
+  left: 10px;
+}
+
+.btn-right {
+  right: 10px;
+}
+
+.btn i {
+  font-size: 50px;
+  color: lawngreen;
+}
+
+/* Dynamic Class */
+.hidden {
+  display: none;
+}
