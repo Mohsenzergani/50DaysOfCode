@@ -1,0 +1,126 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("cat.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.main-nav {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.toggle-btn {
+  cursor: pointer;
+  height: 60px;
+  width: 60px;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.toggle-btn div {
+  height: 4px;
+  width: 25px;
+  background-color: white;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.toggle-btn div::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  height: 4px;
+  width: 40px;
+  background-color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+.toggle-btn div::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+  height: 4px;
+  width: 40px;
+  background-color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+.toggle-btn.open div {
+  background-color: transparent;
+}
+
+.toggle-btn.open div::before {
+  transform: rotate(405deg) translateY(4px);
+}
+
+.toggle-btn.open div::after {
+  transform: rotate(-405deg) translate(20px, -4px);
+}
+
+.main-header {
+  background-color: #4b5d67;
+  width: 50px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.main-header.open {
+  width: 350px;
+}
+
+.main-header.open ul {
+  opacity: 1;
+  z-index: 10;
+  pointer-events: all;
+}
+
+.main-header ul {
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.main-header ul li {
+  list-style-type: none;
+  margin: 10vh 0;
+}
+
+.main-header ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
+
+.overlay.open {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  width: 100%;
+  background-color: hsla(201, 16%, 35%, 0.7);
+  transition: all 0.3s ease-in-out;
+  z-index: 5;
+}
