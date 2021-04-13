@@ -2,7 +2,7 @@
 const start = document.querySelector(".start");
 const quiz = document.querySelector(".quiz");
 const question = document.querySelector(".question");
-const allAnswerChoices = document.querySelectorAll('.choice');
+const allAnswerChoices = document.querySelectorAll(".choice");
 
 const answerChoicesA = document.querySelector("#A");
 const answerChoicesB = document.querySelector("#B");
@@ -13,7 +13,7 @@ const timeGauge = document.querySelector(".time-gauge");
 const progressContainer = document.querySelector(".progress-container");
 const scoreContainer = document.querySelector(".score-container");
 
-// 2 create the Question 
+// 2 create the Question
 let questions = [
   {
     question: "How many different sounds can a cat make?",
@@ -110,17 +110,30 @@ let questions = [
 ];
 
 // 3 necessary Variable
-const lastQuestion = questions.length -1;// we need this variable because after the last question show the score
+const lastQuestion = questions.length - 1; // we need this variable because after the last question show the score
 let activeQuestion = 0;
-let count  = 0;
 //  timing
 const questionTime = 10; //10 seconds
-const gaugeWidth =800; // 800px
+const gaugeWidth = 800; // 800px
 const gaugeUnit = gaugeWidth / questionTime; //80 px
+let count = 0;
 let TIMER;
+let score = 0;
 
+
+// start button event listeners
+start.addEventListener('click',startQuiz)
+
+// Answer choices event listeners
+// console.log(allAnswerChoices)
+allAnswerChoices.forEach(clickAnswer => {
+  clickAnswer.addEventListener('click',function(e){
+    let userAnswer = e.target.innerText;
+    checkAnswer(userAnswer)
+  })
+})
 // 4  renderQuestion function
-function renderQuestion(){
+function renderQuestion() {
   // get object of questions and render the question
   let q = questions[activeQuestion];
   question.innerHTML = `<p>${q.question}</p>`;
@@ -131,21 +144,69 @@ function renderQuestion(){
   answerChoicesD.innerHTML = q.choiceD;
   let bodyImg = `url('${q.questionImg}')`;
   document.body.style.backgroundImage = bodyImg;
-
 }
-start.style.display ='none';
- renderQuestion()
+// start quiz function
+function startQuiz() {
+  start.style.display = "none";
+  renderQuestion();
 
-quiz.style.visibility = 'visible';
+  quiz.style.visibility = "visible";
 
-renderProgress()
+  renderProgress();
+  renderCounter();
+  TIMER = setInterval(renderCounter, 1000);
+}
 
 // 5 renderProgress function
-function renderProgress(){
-  
+function renderProgress() {
   for (let i = 0; i <= lastQuestion; i++) {
-   
-    progressContainer.innerHTML +=
-      `<div class='progress-box' id="${i}"></div>`;
+    progressContainer.innerHTML += `<div class='progress-box' id="${i}"></div>`;
   }
+}
+
+// 6--- renderCounter function
+function renderCounter() {
+  if (count <= questionTime) {
+    counter.innerHTML = count; //show a number begin 0
+    timeGauge.style.width = count * gaugeUnit + "px";
+    count++;
+  } else {
+    answerIsIncorrect( )//if the time 0 and we do not answer the question automatic  answerIsIncorrect
+    nextQuestion()// if the count more then questionTime we want to move nextQuestion
+  }
+}
+// check answer function
+function checkAnswer(answer){
+
+  if(answer === questions[activeQuestion].correctAnswer){
+    score++;
+    answerIsCorrect()
+  }else {
+    answerIsIncorrect( )
+  }
+  nextQuestion(); // call the function in here because not make different is the answer is correct or not we want move to nextQuestion
+}
+
+
+// answerIsCorrect
+function answerIsCorrect(){
+  document.getElementById(activeQuestion).style.backgroundColor = 'green'
+}
+// answerIsIncorrect
+function answerIsIncorrect(){
+  document.getElementById(activeQuestion).style.backgroundColor = 'red'
+}
+
+// nextQuestion function 
+function nextQuestion(){
+  
+  count = 0 ;
+  if(activeQuestion < lastQuestion){
+    activeQuestion++;
+    renderQuestion();
+  }else {
+    clearInterval(TIMER);
+    renderScore();// show to score
+  }
+  
 }
