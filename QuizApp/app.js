@@ -210,3 +210,14 @@ function nextQuestion(){
   }
   
 }
+
+function renderScore(){
+  scoreContainer.style.visibility = 'visible';
+  let scorePercentage = Math.round((100 * score) / questions.length);
+  scoreContainer.innerHTML = `
+    <h2>Percentages of Correctly Answered Questions: ${scorePercentage}</h2>;
+  `;
+  scoreContainer.innerHTML += `
+  <h2>Number of Correctly Answered Questions: ${score}</h2>;
+`
+}
