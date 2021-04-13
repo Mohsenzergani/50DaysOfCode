@@ -120,18 +120,17 @@ let count = 0;
 let TIMER;
 let score = 0;
 
-
 // start button event listeners
-start.addEventListener('click',startQuiz)
+start.addEventListener("click", startQuiz);
 
 // Answer choices event listeners
 // console.log(allAnswerChoices)
-allAnswerChoices.forEach(clickAnswer => {
-  clickAnswer.addEventListener('click',function(e){
+allAnswerChoices.forEach((clickAnswer) => {
+  clickAnswer.addEventListener("click", function (e) {
     let userAnswer = e.target.innerText;
-    checkAnswer(userAnswer)
-  })
-})
+    checkAnswer(userAnswer);
+  });
+});
 // 4  renderQuestion function
 function renderQuestion() {
   // get object of questions and render the question
@@ -171,53 +170,49 @@ function renderCounter() {
     timeGauge.style.width = count * gaugeUnit + "px";
     count++;
   } else {
-    answerIsIncorrect( )//if the time 0 and we do not answer the question automatic  answerIsIncorrect
-    nextQuestion()// if the count more then questionTime we want to move nextQuestion
+    answerIsIncorrect(); //if the time 0 and we do not answer the question automatic  answerIsIncorrect
+    nextQuestion(); // if the count more then questionTime we want to move nextQuestion
   }
 }
 // check answer function
-function checkAnswer(answer){
-
-  if(answer === questions[activeQuestion].correctAnswer){
+function checkAnswer(answer) {
+  if (answer === questions[activeQuestion].correctAnswer) {
     score++;
-    answerIsCorrect()
-  }else {
-    answerIsIncorrect( )
+    answerIsCorrect();
+  } else {
+    answerIsIncorrect();
   }
   nextQuestion(); // call the function in here because not make different is the answer is correct or not we want move to nextQuestion
 }
 
-
 // answerIsCorrect
-function answerIsCorrect(){
-  document.getElementById(activeQuestion).style.backgroundColor = 'green'
+function answerIsCorrect() {
+  document.getElementById(activeQuestion).style.backgroundColor = "green";
 }
 // answerIsIncorrect
-function answerIsIncorrect(){
-  document.getElementById(activeQuestion).style.backgroundColor = 'red'
+function answerIsIncorrect() {
+  document.getElementById(activeQuestion).style.backgroundColor = "red";
 }
 
-// nextQuestion function 
-function nextQuestion(){
-  
-  count = 0 ;
-  if(activeQuestion < lastQuestion){
+// nextQuestion function
+function nextQuestion() {
+  count = 0;
+  if (activeQuestion < lastQuestion) {
     activeQuestion++;
     renderQuestion();
-  }else {
+  } else {
     clearInterval(TIMER);
-    renderScore();// show to score
+    renderScore(); // show to score
   }
-  
 }
 
-function renderScore(){
-  scoreContainer.style.visibility = 'visible';
+function renderScore() {
+  scoreContainer.style.visibility = "visible";
   let scorePercentage = Math.round((100 * score) / questions.length);
   scoreContainer.innerHTML = `
     <h2>Percentages of Correctly Answered Questions: ${scorePercentage}</h2>;
   `;
   scoreContainer.innerHTML += `
   <h2>Number of Correctly Answered Questions: ${score}</h2>;
-`
+`;
 }
