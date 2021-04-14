@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+video {
+  object-fit: cover;
+  border-radius: none;
+  outline: none;
+}
+
+.speed {
+  background: #fffb7f;
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.speed-bar {
+  width: 20%;
+  background-image: linear-gradient(135deg, #fff720 10%, #3cd500 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
