@@ -1,0 +1,43 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.all-imgs {
+  display: flex;
+  flex-direction: column;
+}
+
+.all-imgs img {
+  height: 20vh;
+  width: 200px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.preview-img {
+  height: 100vh;
+}
+
+.current-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.animate-imgs {
+  opacity: 0.5;
+  animation: animate-imgs 0.4s ease-in-out forwards;
+}
+
+@keyframes animate-imgs {
+  100% {
+    opacity: 1;
+  }
+}
