@@ -12,6 +12,7 @@ const foxBtn = document.querySelector('.get-fox');
 
 catBtn.addEventListener("click",getCat);
 dogBtn.addEventListener("click",getDog);
+foxBtn.addEventListener("click",getFox);
 
 // get cat 
 async function getCat(){
@@ -24,6 +25,13 @@ async function getDog(){
   const res = await fetch(`https://dog.ceo/api/breeds/image/random`)
   const data = await res.json();
  dog.innerHTML = `<img src="${data.message}"/>`;
-//  console.log(data.message)
 }
 
+// get Fox pic api
+
+async function getFox(){
+  const res = await fetch(`https://randomfox.ca/floof/`)
+  const data = await res.json();
+  fox.innerHTML = `<img src="${data.image}"/>`;
+ 
+}
