@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  background-image: url("sunset-3325080_1920.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+section {
+  padding: 50px;
+  background-color: rgba(67, 78, 4, 0.8);
+  height: 100vh;
+  width: 1100px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+input {
+  padding: 15px;
+  outline: none;
+  border: 2px solid white;
+  background: none;
+  font-size: 20px;
+  height: 70px;
+  width: 100%;
+  transition: all 0.25s ease-in-out;
+  color: white;
+}
+
+input:focus {
+  background: white;
+  color: rgb(36, 68, 3);
+}
+
+::placeholder {
+  color: white;
+}
+
+sup {
+  margin-left: 5px;
+  font-size: 25px;
+}
+
+.temp,
+.status {
+  font-size: 60px;
+  font-weight: 200;
+}
+
+.temp {
+  margin-bottom: 20px;
+}
+
+.weather-wrapper {
+  width: 100%;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.details .weather-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+p {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+p sup {
+  font-size: 15px;
+}
+
+.weather-icon {
+  height: 150px;
+  width: 150px;
+  background-color: lawngreen;
+}
+
+span,
+.place {
+  color: rgb(0, 228, 103);
+  margin-left: 30px;
+  font-weight: 900;
+}
+
+.place {
+  font-size: 20px;
+  letter-spacing: 1px;
+}
