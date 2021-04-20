@@ -19,6 +19,17 @@ let verticalVelocity =
 // a = sqrt(c^2 - b^2)
 
 
+// randomizing the stars speed, size & location
+for (let i = 0; i < starsNumber; i++) {
+  let speedBoost = Math.random() * 2.5 + 0.5;
+  stars[i] = {
+    starRadius: (Math.random() * size * canvasEl.width) / 2,
+    horizontalPosition: Math.floor(Math.random() * canvasEl.width),
+    verticalPosition: Math.floor(Math.random() * canvasEl.height),
+    horizontalVelocity: horizontalVelocity * speedBoost,
+    verticalVelocity: verticalVelocity * speedBoost,
+  };
+}
 //--------------------- The Game Loop
 
 // the animation loop
