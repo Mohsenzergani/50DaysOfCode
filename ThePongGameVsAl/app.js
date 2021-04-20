@@ -103,12 +103,59 @@ function runGame() {
     "white"
   );
   // Drawing the paddle for RI and AI
-  
+  drawRect(
+    playerPaddleRI.xP,
+    playerPaddleRI.yP,
+    playerPaddleRI.width,
+    playerPaddleRI.height,
+    playerPaddleRI.color
+  );
+  drawRect(
+    playerPaddleAI.xP,
+    playerPaddleAI.yP,
+    playerPaddleAI.width,
+    playerPaddleAI.height,
+    playerPaddleAI.color
+  );
+  // Drawing the ball 
+  drawCircle(ball.xP,ball.yP,ball.radius,ball.color)
+}
+// the detection on ball to paddle
+function paddleDetection(BALL,PADDLE){
+  // ball
+  BALL.top =  BALL.yP - BALL.radius;
+  BALL.bottom = BALL.yP + BALL.radius;
+  BALL.left = BALL.xP - BALL.radius;
+  BALL.right = BALL.xP + BALL.radius;
+  // paddle
+  PADDLE.top = PADDLE.yP;
+  PADDLE.bottom = PADDLE.yP + PADDLE.height;
+  PADDLE.left = PADDLE.xP;
+  PADDLE.right = PADDLE.xP + PADDLE.width;
+
+  return  (
+    BALL.right > PADDLE.left &&
+    BALL.bottom > PADDLE.top &&
+    BALL.left < PADDLE.right &&
+    BALL.top < PADDLE.bottom
+  );
+}
+// the everything Manger Function
+function everythingManger(){
+  // moving the ball by the amount of acceleration
+    ball.xP += ball.xV;
+    ball.yP += ball.yV;
+  // bouncing off the top and bottom walls
+  if(ball.yP + ball.radius > canvasEl.height || ball.yP  - ball.radius < 0){
+    ball.yV = -ball.yV;
+    // wall.play();
+  }
 }
 // the game initialization function
 function gameInit() {
+  everythingManger();
   runGame();
 }
 // looping the game to keep running
-const fPS = 60;
-setTimeout(gameInit, 1000 / fPS);
+const FPS = 60;
+setInterval(gameInit, 1000 / FPS);
