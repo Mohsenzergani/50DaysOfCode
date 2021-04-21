@@ -117,13 +117,24 @@ function runGame() {
     playerPaddleAI.height,
     playerPaddleAI.color
   );
-  // Drawing the ball 
-  drawCircle(ball.xP,ball.yP,ball.radius,ball.color)
+  // Drawing the ball
+  drawCircle(ball.xP, ball.yP, ball.radius, ball.color);
+}
+// create the AI
+let intelligenceLevel = 0.1;
+playerPaddleAI.yP +=
+  (ball.yP - (playerPaddleAI.yP + playerPaddleAI.height / 2)) *
+  intelligenceLevel;
+// the player paddle RI event listeners
+canvasEl.addEventListener("mousemove", mousePaddle);
+function mousePaddle(e) {
+  let canvasRect = canvasEl.getBoundingClientRect();
+  playerPaddleRI.yP = e.clientY - canvasRect.top - playerPaddleRI.height / 2;
 }
 // the detection on ball to paddle
-function paddleDetection(BALL,PADDLE){
+function paddleDetection(BALL, PADDLE) {
   // ball
-  BALL.top =  BALL.yP - BALL.radius;
+  BALL.top = BALL.yP - BALL.radius;
   BALL.bottom = BALL.yP + BALL.radius;
   BALL.left = BALL.xP - BALL.radius;
   BALL.right = BALL.xP + BALL.radius;
@@ -133,7 +144,7 @@ function paddleDetection(BALL,PADDLE){
   PADDLE.left = PADDLE.xP;
   PADDLE.right = PADDLE.xP + PADDLE.width;
 
-  return  (
+  return (
     BALL.right > PADDLE.left &&
     BALL.bottom > PADDLE.top &&
     BALL.left < PADDLE.right &&
@@ -141,15 +152,16 @@ function paddleDetection(BALL,PADDLE){
   );
 }
 // the everything Manger Function
-function everythingManger(){
+function everythingManger() {
   // moving the ball by the amount of acceleration
-    ball.xP += ball.xV;
-    ball.yP += ball.yV;
+  ball.xP += ball.xV;
+  ball.yP += ball.yV;
   // bouncing off the top and bottom walls
-  if(ball.yP + ball.radius > canvasEl.height || ball.yP  - ball.radius < 0){
+  if (ball.yP + ball.radius > canvasEl.height || ball.yP - ball.radius < 0) {
     ball.yV = -ball.yV;
     // wall.play();
   }
+  let player = ball.xP < canvasEl.width / 2 ? playerPaddleRI : playerPaddleAI;
 }
 // the game initialization function
 function gameInit() {
