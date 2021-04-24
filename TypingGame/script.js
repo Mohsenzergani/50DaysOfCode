@@ -76,7 +76,17 @@ function updateScore() {
   scoreEl.innerHTML = score;
 }
 
+// Update time
+function updateTime() {
+  time--;
+  timeEl.innerHTML = time + 's';
 
+  if (time === 0) {
+    clearInterval(timeInterval);
+    // end game
+    gameOver();
+  }
+}
 
 // Game over, show end screen
 function gameOver() {
