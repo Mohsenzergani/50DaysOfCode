@@ -20,13 +20,13 @@ function onSpeak(e) {
   checkNumber(msg);
 }
 
-// // Write what user speaks
-// function writeMessage(msg) {
-//   msgEl.innerHTML = `
-//     <div>You said: </div>
-//     <span class="box">${msg}</span>
-//   `;
-// }
+// Write what user speaks
+function writeMessage(msg) {
+  msgEl.innerHTML = `
+    <div>You said: </div>
+    <span class="box">${msg}</span>
+  `;
+}
 
 // Check msg against number
 function checkNumber(msg) {
