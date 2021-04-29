@@ -9,7 +9,10 @@ const expenseList = document.querySelector("#expense-tracker .list");
 const allList = document.querySelector("#all .list");
 const lists = document.querySelectorAll(".list");
 
-
+// Tabs
+const expenseBtn = document.querySelector(".tab1");
+const incomeBtn = document.querySelector(".tab2");
+const allBtn = document.querySelector(".tab3");
 
 // Input Btns
 const addExpense = document.querySelector(".add-expense");
