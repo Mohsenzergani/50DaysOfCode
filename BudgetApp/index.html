@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/fbadad80a0.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Project #23 - The Budget App</title>
+  </head>
+  <body>
+    <div class="budget-container">
+      <h1>The Budget App</h1>
+      <!-- Header -->
+      <div class="budget-header">
+        <!-- Balance -->
+        <div class="balance">
+          <div class="value">
+            <p>$</p>
+            <p>0</p>
+          </div>
+        </div>
+
+        <!-- Account -->
+        <div class="account">
+          <!-- Income -->
+          <div class="income">
+            <h2 class="title">Income</h2>
+            <div class="income-total">
+              <p>$</p>
+              <p>0</p>
+            </div>
+          </div>
+
+          <!-- Chart -->
+          <div class="chart"></div>
+
+          <!-- Outcome -->
+          <div class="outcome">
+            <h2 class="title">Outcome</h2>
+            <div class="outcome-total">
+              <p>$</p>
+              <p>0</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard -->
+      <div class="budget-dashboard">
+        <!-- Income Tracker -->
+        <div class="income">
+          <h3 class="tab2">Income Tracker</h3>
+          <div class="hide" id="income-tracker">
+            <ul class="list"></ul>
+            <div class="input">
+              <div>
+                <input
+                  type="text"
+                  id="income-title-input"
+                  name="title"
+                  placeholder="Title"
+                />
+                <input
+                  type="number"
+                  id="income-amount-input"
+                  name="amount"
+                  placeholder="$0"
+                />
+              </div>
+              <input type="submit" value="Add" class="add-income" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Expense Tracker -->
+        <div class="expense">
+          <h3 class="tab1">Expense Tracker</h3>
+          <div class="hide" id="expense-tracker">
+            <ul class="list"></ul>
+            <div class="input">
+              <div>
+                <input
+                  type="text"
+                  id="expense-title-input"
+                  name="title"
+                  placeholder="Title"
+                />
+                <input
+                  type="number"
+                  id="expense-amount-input"
+                  name="amount"
+                  placeholder="$0"
+                />
+              </div>
+              <input type="submit" value="Add" class="add-expense" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Total -->
+        <div id="all">
+          <h3 class="tab3 active">All</h3>
+          <ul class="list"></ul>
+        </div>
+      </div>
+    </div>
+    <!-- ----------------------- -->
+    <!-- JS Files -->
+    <script src="chart.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
